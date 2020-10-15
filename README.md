@@ -48,7 +48,7 @@ Pareceu interessante?! Pois bem. Para começar, nesta aula você vai aprender do
 
 - <p><a href="#1"> :pushpin: 1.</a> Dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?;</p>
 
-- <p><a href="#2"> :pushpin: 2.</a> Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA;</p>
+- <p><a href="#2"> :pushpin: 2.</a> Agora, dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?</p>
 
 - <p><a href="#3"> :pushpin: 3.</a> Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA;</p>
 
@@ -100,6 +100,8 @@ const jupiter = {
 console.log(planetDistanceFromSun(mars)); // A Primeiro
 console.log(planetDistanceFromSun(venus)); // B Segundo 
 console.log(planetDistanceFromSun(jupiter)); // C Terceiro
+
+//A ordem de finalização das linhas comentadas é: A, B e, por fim, C
 ```
 
 </details>
@@ -114,13 +116,48 @@ console.log(planetDistanceFromSun(jupiter)); // C Terceiro
 
 ### 2°
 
+Agora, dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?
+
 #### Resposta:
 
 <details>
  <summary> :pencil2: Código Javascript</summary>
 
 ```js
+const planetDistanceFromSun = ({
+  name,
+  distanceFromSun: { value, measurementUnit },
+}) => `${name} is ${value} ${measurementUnit} apart from the Sun`;
 
+const mars = {
+  name: 'Mars',
+  distanceFromSun: {
+    value: 227900000,
+    measurementUnit: 'kilometers',
+  },
+};
+
+const venus = {
+  name: 'Venus',
+  distanceFromSun: {
+    value: 108200000,
+    measurementUnit: 'kilometers',
+  },
+};
+
+const jupiter = {
+  name: 'Jupiter',
+  distanceFromSun: {
+    value: 778500000,
+    measurementUnit: 'kilometers',
+  },
+};
+
+console.log(planetDistanceFromSun(mars)); // A Primeiro
+setTimeout(() => console.log(planetDistanceFromSun(venus)), 3000); // B Terceiro
+setTimeout(() => console.log(planetDistanceFromSun(jupiter)), 2000); // C Segundo
+
+// A ordem de finalização das linhas comentadas é: A, C e, por fim, B
 ```
 
 </details>

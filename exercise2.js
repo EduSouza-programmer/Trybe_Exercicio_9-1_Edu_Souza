@@ -28,7 +28,7 @@ const jupiter = {
 };
 
 console.log(planetDistanceFromSun(mars)); // A Primeiro
-console.log(planetDistanceFromSun(venus)); // B Segundo
-console.log(planetDistanceFromSun(jupiter)); // C Terceiro
+setTimeout(() => console.log(planetDistanceFromSun(venus)), 3000); // B Terceiro
+setTimeout(() => console.log(planetDistanceFromSun(jupiter)), 2000); // C Segundo
 
-// A ordem de finalização das linhas comentadas é: A, B e, por fim, C
+// A ordem de finalização das linhas comentadas é: A, C e, por fim, B
