@@ -48,9 +48,9 @@ Pareceu interessante?! Pois bem. Para começar, nesta aula você vai aprender do
 
 - <p><a href="#1"> :pushpin: 1.</a> Dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?;</p>
 
-- <p><a href="#2"> :pushpin: 2.</a> Agora, dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?</p>
+- <p><a href="#2"> :pushpin: 2.</a> Agora, dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?;</p>
 
-- <p><a href="#3"> :pushpin: 3.</a> Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA;</p>
+- <p><a href="#3"> :pushpin: 3.</a> A função getPlanet abaixo imprime o planeta Marte de forma síncrona. Modifique getPlanet, de forma que Marte seja impresso assincronamente, depois de 4 segundos;</p>
 
 - <p><a href="#4"> :pushpin: 4.</a> Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA;</p>
 
@@ -172,13 +172,27 @@ setTimeout(() => console.log(planetDistanceFromSun(jupiter)), 2000); // C Segund
 
 ### 3°
 
+A função getPlanet abaixo imprime o planeta Marte de forma síncrona. Modifique getPlanet, de forma que Marte seja impresso assincronamente, depois de 4 segundos.
+
 #### Resposta:
 
 <details>
  <summary> :pencil2: Código Javascript</summary>
 
 ```js
+const getPlanet = () => {
+  const mars = {
+    name: 'Mars',
+    distanceFromSun: {
+      value: 227900000,
+      measurementUnit: 'kilometers',
+    },
+	};
+	// Resolução
+  setTimeout(() => console.log('Returned planet: ', mars), 4000);
+};
 
+getPlanet(); // imprime Marte depois de 4 segundos
 ```
 
 </details>
