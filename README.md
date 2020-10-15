@@ -3,8 +3,7 @@
 </h1>
 
 <h3 align="center">
-  <strike>Exercício 9-1: JavaScript - Assíncrono e Callbacks - Concluído o/ o/ o/ :star:</strike>
-	<h4 align="center">Em resolução</h4>
+  Exercício 9-1: JavaScript - Assíncrono e Callbacks - Concluído o/ o/ o/ :star:
 </h3>
 
 <blockquote align="center">“Quanto mais você estuda, mais aprende e se aproxima de realizar seu sonhos!”</blockquote>
