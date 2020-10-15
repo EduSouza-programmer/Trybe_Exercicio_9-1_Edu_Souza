@@ -56,7 +56,7 @@ Pareceu interessante?! Pois bem. Para começar, nesta aula você vai aprender do
 
 - <p><a href="#5"> :pushpin: 5.</a> Agora que você fez a função que envia a temperatura de Marte, suponha que você consiga enviar para o robô Curiosity o que você deseja fazer, uma vez obtida com sucesso a temperatura em Marte. Logo, adicione na função sendMarsTemperature um callback que contenha as ações a serem tomadas em cima da temperatura;</p>
 
-- <p><a href="#6"> :pushpin: 6.</a> Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA;</p>
+- <p><a href="#6"> :pushpin: 6.</a> Por fim, o robô Curiosity tem uma taxa de sucesso de envio de mensagem de 60% devido ao fato de o robô já estar muito ocupado com outras operações. Logo, adicione na função sendMarsTemperature um outro callback que contenha as ações a serem tomadas em caso de falha.</p>
 
 ## :books: Exercícios
 
@@ -289,13 +289,46 @@ sendMarsTemperature(greet); // imprime "Hi there! Curiosity here. Right now is 5
 
 ### 6°
 
+Por fim, o robô Curiosity tem uma taxa de sucesso de envio de mensagem de 60% devido ao fato de o robô já estar muito ocupado com outras operações. Logo, adicione na função sendMarsTemperature um outro callback que contenha as ações a serem tomadas em caso de falha.
+
 #### Resposta:
 
 <details>
  <summary> :pencil2: Código Javascript</summary>
 
 ```js
+const messageDelay = () => Math.floor(Math.random() * 5000);
 
+const getMarsTemperature = () => {
+  const maxTemperature = 58;
+  return Math.floor(Math.random() * maxTemperature);
+};
+
+const toFahrenheit = (degreeCelsius) => (degreeCelsius * 9) / 5 + 32;
+const temperatureInFahrenheit = (temperature) =>
+  console.log(`It is currently ${toFahrenheit(temperature)}ºF at Mars`);
+const greet = (temperature) =>
+  console.log(
+    `Hi there! Curiosity here. Right now is ${temperature}ºC at Mars`
+  );
+
+const handleError = (errorReason) =>
+  console.log(`Error getting temperature: ${errorReason}`);
+
+// definição da função sendMarsTemperature...
+const sendMarsTemperature = (sucessMensage, errorMensage) => {
+  setTimeout(() => {
+    Math.random() <= 0.6
+      ? sucessMensage(getMarsTemperature())
+      : errorMensage('Robot is busy');
+  }, messageDelay());
+};
+
+// imprime "It is currently 47ºF at Mars", por exemplo, ou "Error getting temperature: Robot is busy"
+sendMarsTemperature(temperatureInFahrenheit, handleError);
+
+// imprime "Hi there! Curiosity here. Right now is 53ºC at Mars", por exemplo, ou "Error getting temperature: Robot is busy"
+sendMarsTemperature(greet, handleError);
 ```
 
 </details>
